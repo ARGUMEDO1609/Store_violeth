@@ -34,7 +34,7 @@ assert_select '.price', '150$'
     }
 
     assert_redirected_to products_path
-    assert_equal flash[:notice], 'Tu producto se ha creado correctamente'
+    assert_equal flash[:notice], 'Your product has been created successfully'
   end
 
   test 'does not allow to create a new product' do
@@ -64,7 +64,7 @@ assert_select '.price', '150$'
     }
 
     assert_redirected_to products_path
-    assert_equal flash[:notice], 'Tu producto se ha actualizado correctamente'
+    assert_equal flash[:notice], 'Your product has been successfully updated'
   end
 
   test 'does not allow to update a product with an invalid field' do
@@ -82,6 +82,6 @@ assert_select '.price', '150$'
       delete product_path(products(:ps4))
     end
   assert_redirected_to products_path
-  assert_equal flash[:notice], 'Tu producto se ha eliminado correctamente'
+  assert_equal flash[:notice], 'Your product has been successfully removed'
   end
 end
