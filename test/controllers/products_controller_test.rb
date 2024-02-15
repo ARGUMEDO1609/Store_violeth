@@ -5,7 +5,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 get products_path
 
 assert_response :success
-assert_select '.product', 2
+assert_select '.product', 3
   end
 
   test 'render a detailed product page' do
@@ -29,7 +29,8 @@ assert_select '.price', '150$'
       product: {
         title: 'Nintendo 65',
         description: 'Le falta los cables',
-        price: 45
+        price: 45,
+        category_id: categories(:videogames).id
       }
     }
 
