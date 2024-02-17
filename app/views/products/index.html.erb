@@ -1,3 +1,14 @@
-<h1>Products:</h1>
+<%= turbo_frame_tag 'categories' do %>
+ <h1>Products:</h1>
 
-<%= render partial: 'product', collection: @products %>
+<%= form_with url: products_path, method: :get do |form| %>
+<%= form.text_field :query_text, placeholder: 'What do you want to look for?', onChange: 'this.form.requestSubmit()', value: params[:query_tex] %>
+<%= form.number_field :min_price, placeholder: 'Min_price', onChange: 'this.form.requestSubmit()', value: params[:min_price] %>
+<%= form.number_field :max_price, placeholder: 'Max_price', onChange: 'this.form.requestSubmit()', value: params[:max_price] %>
+<% end %> 
+
+    <%= link_to 'All', products_path%>
+
+  <%= render partial: 'category', collection: @categories %>
+ <%= render partial: 'product', collection: @products %>
+<% end %>

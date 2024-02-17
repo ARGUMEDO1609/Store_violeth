@@ -6,7 +6,31 @@ get products_path
 
 assert_response :success
 assert_select '.product', 3
+assert_select '.category', 3
   end
+
+  test 'render a list of products filtered by category' do
+    get products_path(category_id: categories(:computers).id)
+
+    assert_response :success
+    assert_select '.product', 1
+      end
+
+      test 'render a list of products filtered by mi_price and max_price' do
+        get products_path(min_price: 160, max_price: 200 )
+
+        assert_response :success
+        assert_select '.product', 1
+        assert_select 'h2', 'Nintendo Switch'
+          end
+
+          test 'search a product by query_text' do
+            get products_path(query_text: 'Switch' )
+
+            assert_response :success
+            assert_select '.product', 1
+            assert_select 'h2', 'Nintendo Switch'
+              end
 
   test 'render a detailed product page' do
 get product_path(products(:ps4))
