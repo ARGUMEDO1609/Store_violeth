@@ -1,4 +1,4 @@
-<%= form_with model: @user do |form| %>
+<%= form_with(model: @user) do |form| %>
  <% @user.errors.full_messages.each do |error| %>
 <div>
     <%= error %>
