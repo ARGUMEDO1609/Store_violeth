@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  skip_before_action :protect_pages, only: [:index, :show]
+
   def index
     @categories = Category.order(name: :asc)
     @pagy, @products = pagy_countless(FindProducts.new.call(product_params_index), items: 12)
