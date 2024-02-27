@@ -14,4 +14,10 @@ skip_before_action :protect_pages
     redirect_to new_session_path, alert: 'Invalid login!'
    end
   end
+
+  def destroy
+    session.delete(:user_id)
+
+    redirect_to products_path, notice: 'Destroyed!'
+  end
 end
