@@ -25,10 +25,11 @@ render :new, status: :unprocessable_entity
  end
 
  def edit
- product
+  authorize! product
  end
 
  def update
+  authorize! product
   if product.update(product_params)
     redirect_to products_path, notice: 'Your product has been successfully updated'
   else
@@ -37,6 +38,7 @@ render :edit, status: :unprocessable_entity
  end
 
  def destroy
+  authorize! product
   product.destroy
 
   redirect_to products_path, notice: 'Your product has been successfully removed', status: :see_other

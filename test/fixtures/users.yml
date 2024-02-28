@@ -4,7 +4,7 @@ nelson:
   email: noslenque931@gmail.com
   username: nea1609
   password_digest: <%= BCrypt::Password.create('123456', cost: 5) %>
- 
+  admin: true
 
 violeth:
   email: violeth@gmail.com

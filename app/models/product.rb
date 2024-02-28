@@ -19,4 +19,8 @@ has_one_attached :photo
 
   belongs_to :category
   belongs_to :user, default: -> { Current.user }
+
+  def owner?
+    user_id == Current.user.id
+  end
 end
