@@ -15,6 +15,7 @@
 
 <%= link_to 'View more products', user_path(@product.user.username)%>
 
-<%= link_to '❤️', favorites_path(product_id: @product.id), data: {
-    turbo_method: :post,
-} %>
+<%= render partial: 'favorite', locals: { product: @product} %>
+
+
+
