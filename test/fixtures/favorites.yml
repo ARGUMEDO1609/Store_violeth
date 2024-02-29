@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+nelson_switch:
+  user: nelson
+  product: switch
+
+carolina_driver:
+  user: carolina
+  product: driver2
