@@ -1,13 +1,17 @@
-<%= link_to products_path do  %>
-<h1>Violeth Store</h1>
+<div class="bg-white flex justify-between items-center px-2">
+   <%= link_to products_path do  %>
+<h1 class="text-2x1 font-bold text-blue-500">Violeth Store</h1>
 <% end %>
 
-<%= link_to 'Add product', new_product_path if Current.user %>
-<%= link_to 'Favorites', favorites_path if Current.user %>
-<%= link_to 'Categories', categories_path if Current.user&.admin? %>
-<%= link_to 'Login', new_session_path unless Current.user %>
-<%= link_to 'Register', new_user_path unless Current.user %>
+<div>  
+<%= link_to 'Add product', new_product_path, class:"mx-2 text-teal-500 font-bold" if Current.user %>
+<%= link_to 'Favorites', favorites_path, class:"mx-2 text-teal-500 font-bold" if Current.user %>
+<%= link_to 'Categories', categories_path, class:"mx-2 text-teal-500 font-bold" if Current.user&.admin? %>
+<%= link_to 'Login', new_session_path, class:"mx-2 text-teal-500 font-bold" unless Current.user %>
+<%= link_to 'Register', new_user_path, class:"mx-2 text-teal-500 font-bold" unless Current.user %>
 <%= link_to 'Logout', session_path(Current.user.id), data: {
    turbo_method: :delete,
    turbo_comfirm: 'Confirm!'
-} if Current.user %>
+}, class:"mx-2 text-red-600 font-bold" if Current.user %>
+   </div>
+</div>
