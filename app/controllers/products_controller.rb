@@ -31,6 +31,7 @@ render :new, status: :unprocessable_entity
  def update
   authorize! product
   if product.update(product_params)
+    product.broadcast
     redirect_to products_path, notice: 'Your product has been successfully updated'
   else
 render :edit, status: :unprocessable_entity
